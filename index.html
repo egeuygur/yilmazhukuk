@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yılmaz Hukuk | Ana Sayfa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root { --gold: #d4a373; --dark: #121212; --light: #f8f9fa; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #fff; color: #333; line-height: 1.6; }
+
+        header { 
+            background: var(--dark); 
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 2px solid var(--gold);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { color: white; font-family: 'Playfair Display', serif; font-size: 1.5rem; text-decoration: none; }
+        
+        .hamburger { display: none; flex-direction: column; cursor: pointer; }
+        .hamburger div { width: 25px; height: 3px; background: white; margin: 3px 0; transition: 0.3s; }
+        
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; transition: 0.4s ease; position: relative; }
+        nav ul li a:hover { color: var(--gold); }
+        
+        nav ul li a::after {
+            content: ''; width: 0; height: 2px; background: var(--gold);
+            position: absolute; bottom: -5px; left: 0; transition: 0.3s;
+        }
+        nav ul li a:hover::after { width: 100%; }
+
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 0 10%;
+        }
+        
+        .hero h1 { 
+            font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; 
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        section { padding: 100px 10%; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 50px; }
+
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-img img { width: 100%; border-radius: 4px; box-shadow: 20px 20px 0px var(--gold); }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { 
+            background: #fff; padding: 40px; border: 1px solid #eee; 
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+        }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--gold); }
+
+        footer { background: var(--dark); color: #888; text-align: center; padding: 40px; }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) { 
+            .about-content { grid-template-columns: 1fr; }
+            header { padding: 15px 5%; }
+            .logo { font-size: 1.2rem; }
+            .hamburger { display: flex; }
+            nav { position: absolute; top: 100%; left: 0; width: 100%; background: var(--dark); display: none; }
+            nav ul { flex-direction: column; padding: 20px 0; }
+            nav ul li { margin: 10px 0; text-align: center; }
+            nav.active { display: block; }
+            .hero { height: 70vh; padding: 0 5%; }
+            .hero h1 { font-size: 2.5rem; }
+            section { padding: 50px 5%; }
+            .section-title { font-size: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .service-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">YILMAZ HUKUK</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">ANA SAYFA</a></li>
+                <li><a href="#about">HAKKIMIZDA</a></li>
+                <li><a href="#services">HİZMETLERİMİZ</a></li>
+                <li><a href="iletisim.html">İLETİŞİM</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Yılmaz Hukuk ve Danışmanlık</h1>
+        <p>Adaletin temsilcisi, güvenin adresi.</p>
+        <br>
+        <a href="iletisim.html" style="border: 2px solid var(--gold); color:white; padding:12px 30px; text-decoration:none; transition:0.3s;">HEMEN DANIŞIN</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Hakkımızda</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3 style="color:var(--gold); margin-bottom:20px;">Vizyonumuz</h3>
+                <p>Yılmaz Hukuk Bürosu olarak, her müvekkilin davasını kendi davamız gibi sahipleniyoruz. Hukukun karmaşık labirentlerinde size en güvenli yolu çizmek için buradayız.</p>
+                <p>Tecrübe, şeffaflık ve dürüstlük temel vazgeçilmezimizdir.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Avukat">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background:#fcfcfc;">
+        <h2 class="section-title">Hizmet Alanlarımız</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Gayrimenkul Hukuku</h3>
+                <p>Tapu iptal, tescil ve taşınmaz yönetimi konularında profesyonel destek.</p>
+            </div>
+            <div class="service-card">
+                <h3>İş Hukuku</h3>
+                <p>İşçi ve işveren haklarının korunması, kıdem tazminatı ve arabuluculuk.</p>
+            </div>
+            <div class="service-card">
+                <h3>Bilişim Hukuku</h3>
+                <p>Dijital dünyadaki haklarınızın korunması ve KVKK danışmanlığı.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Yılmaz Hukuk Bürosu - Av. M. Yılmaz</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
